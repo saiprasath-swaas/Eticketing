@@ -1,4 +1,5 @@
-﻿var config = require('config.json');
+﻿require('rootpath');
+var config = require('config.json');
 var _ = require('lodash');
 var jwt = require('jsonwebtoken');
 var bcrypt = require('bcryptjs');
