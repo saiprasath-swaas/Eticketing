@@ -1,0 +1,36 @@
+.capbox {
+    background-color: #92D433;
+    margin: auto;
+    display: inline-block;
+    padding: 4px auto 4px auto;
+}
+
+.captchainner {
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    padding: 4px;
+    background-color: #DBF3BA;
+    color: black;
+    margin: 5px auto 0px auto;
+    padding: 3px;
+    font: bold 11px arial, sans-serif;
+}
+
+.captchaDiv {
+    background-color: white;
+    color: black;
+    text-align: left;
+    font: 17px verdana, arial, sans-serif;
+    font-style: italic;
+    font-weight: bold;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    padding: 4px;
+}
+
+#captchainput {
+    color: #000000;
+    font-size: 14px;
+    width: 135px;
+    margin: 4px auto 4px auto;
+}

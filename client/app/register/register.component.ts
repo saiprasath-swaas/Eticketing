@@ -5,12 +5,15 @@ import { AlertService, UserService } from '../_services/index';
 
 @Component({
     moduleId: module.id,
-    templateUrl: 'register.component.html'
+    selector:'app-register',
+    templateUrl: 'register.component.html',
+    styleUrls:['./register.component.css']
 })
 
 export class RegisterComponent {
     model: any = {};
     loading = false;
+    txtCaptcha:string;
 
     constructor(
         private router: Router,
