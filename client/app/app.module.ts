@@ -13,13 +13,20 @@ import { AlertService, AuthenticationService, UserService } from './_services/in
 import { HomeComponent } from './home/index';
 import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
+import {SelfbitsAngularModule} from 'selfbits-angular2-sdk';
 
+const SELFBITSCONFIG = {
+      BASE_URL:'',
+      APP_ID:''
+  };
+  
 @NgModule({
     imports: [
         BrowserModule,
         FormsModule,
         HttpClientModule,
-        routing
+        routing,
+        SelfbitsAngularModule.initializeApp(SELFBITSCONFIG),
     ],
     declarations: [
         AppComponent,

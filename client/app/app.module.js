@@ -19,6 +19,11 @@ var index_4 = require("./_services/index");
 var index_5 = require("./home/index");
 var index_6 = require("./login/index");
 var index_7 = require("./register/index");
+var selfbits_angular2_sdk_1 = require("selfbits-angular2-sdk");
+var SELFBITSCONFIG = {
+    BASE_URL: '',
+    APP_ID: ''
+};
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -28,7 +33,8 @@ var AppModule = /** @class */ (function () {
                 platform_browser_1.BrowserModule,
                 forms_1.FormsModule,
                 http_1.HttpClientModule,
-                app_routing_1.routing
+                app_routing_1.routing,
+                selfbits_angular2_sdk_1.SelfbitsAngularModule.initializeApp(SELFBITSCONFIG),
             ],
             declarations: [
                 app_component_1.AppComponent,

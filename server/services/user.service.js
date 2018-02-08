@@ -6,7 +6,6 @@ var bcrypt = require('bcryptjs');
 var Q = require('q');
 var mongo = require('mongoskin');
 var expres = require('express');
-var app = express();
 var db = mongo.db(config.connectionString, { native_parser: true });
 db.bind('users');
 

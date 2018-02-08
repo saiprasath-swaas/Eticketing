@@ -11,13 +11,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
+var selfbits_angular2_sdk_1 = require("selfbits-angular2-sdk");
 var index_1 = require("../_services/index");
 var LoginComponent = /** @class */ (function () {
-    function LoginComponent(route, router, authenticationService, alertService) {
+    function LoginComponent(route, router, authenticationService, alertService, sb) {
         this.route = route;
         this.router = router;
         this.authenticationService = authenticationService;
         this.alertService = alertService;
+        this.sb = sb;
         this.model = {};
         this.loading = false;
     }
@@ -27,16 +29,51 @@ var LoginComponent = /** @class */ (function () {
         // get return url from route parameters or default to '/'
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
     };
-    LoginComponent.prototype.login = function () {
+    LoginComponent.prototype.login = function (provider) {
         var _this = this;
-        this.loading = true;
-        this.authenticationService.login(this.model.email, this.model.password)
-            .subscribe(function (data) {
-            _this.router.navigate([_this.returnUrl]);
-        }, function (error) {
-            _this.alertService.error(error);
-            _this.loading = false;
-        });
+        if (provider == "facebook") {
+            this.sb.auth.social(provider).subscribe(function (data) {
+                if (data.status == 200) {
+                    console.log("Successfully Logged in");
+                }
+                else {
+                    console.log("Cannot login");
+                    return;
+                }
+            });
+        }
+        else if (provider == "twitter") {
+            this.sb.auth.social(provider).subscribe(function (data) {
+                if (data.status == 200) {
+                    console.log("Successfully Logged in");
+                }
+                else {
+                    console.log("Cannot login");
+                    return;
+                }
+            });
+        }
+        else if (provider == "twitter") {
+            this.sb.auth.social(provider).subscribe(function (data) {
+                if (data.status == 200) {
+                    console.log("Successfully Logged in");
+                }
+                else {
+                    console.log("Cannot login");
+                    return;
+                }
+            });
+        }
+        else {
+            this.loading = true;
+            this.authenticationService.login(this.model.email, this.model.password)
+                .subscribe(function (data) {
+                _this.router.navigate([_this.returnUrl]);
+            }, function (error) {
+                _this.alertService.error(error);
+                _this.loading = false;
+            });
+        }
     };
     LoginComponent = __decorate([
         core_1.Component({
@@ -46,7 +83,8 @@ var LoginComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [router_1.ActivatedRoute,
             router_1.Router,
             index_1.AuthenticationService,
-            index_1.AlertService])
+            index_1.AlertService,
+            selfbits_angular2_sdk_1.SelfbitsAngular])
     ], LoginComponent);
     return LoginComponent;
 }());

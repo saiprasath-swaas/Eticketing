@@ -20,8 +20,4 @@ export class HomeComponent implements OnInit {
     ngOnInit() {
         
     }
-    walletBal() {}
-    EditProf(userId) {
-
-    }
 }
